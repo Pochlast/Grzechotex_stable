@@ -34,9 +34,21 @@ document.querySelector(".rattle-btns").onclick = function(e){
     document.querySelectorAll(".rattle-btns img")[2].classList.remove("target")
 
     e.target.classList.add("target");
-    if(e.target.classList.value.includes('1')) soundFile = './grzechotka_2.mp3'
-    if(e.target.classList.value.includes('2')) soundFile = './grzechotka_3.wav'
-    if(e.target.classList.value.includes('3')) soundFile = ''
+    if(e.target.classList.value.includes('1')) {
+        soundFile1 = './grzechotka_real1.wav'
+        soundFile2 = './grzechotka_real2_damp.wav'
+        soundFile3 = './grzechotka_real2_damp.wav'
+    }
+    if(e.target.classList.value.includes('2')) {
+     soundFile1 = './grzechotka_3.wav'
+     soundFile2 = './grzechotka_3.wav' 
+     soundFile3 = './grzechotka_3.wav' 
+    }
+    if(e.target.classList.value.includes('3')) {
+     soundFile1 = './grzechotka_walec1.wav'
+     soundFile2 = './grzechotka_walec2.wav' 
+     soundFile3 = './grzechotka_walec3.wav'                
+     }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -51,8 +63,10 @@ let LEFT, UP, RIGHT, DOWN;
 let friction = 0.001;
 let coef_restitution = 0.90;
 let coef_ability = 3.5;
-let soundFile = './grzechotka_2.mp3'
-
+let soundFile = './grzechotka_3.wav'
+let soundFile1 = './grzechotka_3.wav'
+let soundFile2 = './grzechotka_3.wav' 
+let soundFile3 = './grzechotka_3.wav' 
 
 var devicePixelRatio = window.devicePixelRatio || 1;
 dpi_x = document.getElementById('testdiv').offsetWidth * devicePixelRatio;
@@ -225,16 +239,16 @@ function coll_det_bb(b1, b2) {
 function Horizontal_coll(b) {
     if (b.soundAbilityHorizontal && Math.abs(b.vel.x) > vel_lim) {
         b.soundAbilityHorizontal = false;
-        if (b.pos.x > 1 / 3 * wall_width && b.pos.x < 2 / 3 * wall_width) { new Audio(soundFile).play(); }
-        new Audio(soundFile).play();
+        if (b.pos.x > 1 / 3 * wall_width && b.pos.x < 2 / 3 * wall_width) { new Audio(soundFile1).play(); }
+        new Audio(soundFile2).play();
     }
 }
 
 function Vertical_coll(b) {
     if (b.soundAbilityHorizontal && Math.abs(b.vel.y) > vel_lim) {
         b.soundAbilityHorizontal = false;
-        if (b.pos.y > 1 / 3 * wall_height && b.pos.y < 2 / 3 * wall_height) { new Audio(soundFile).play(); }
-        new Audio(soundFile).play();
+        if (b.pos.y > 1 / 3 * wall_height && b.pos.y < 2 / 3 * wall_height) { new Audio(soundFile2).play(); }
+        new Audio(soundFile3).play();
     }
 }
 
