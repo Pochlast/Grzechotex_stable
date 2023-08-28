@@ -239,8 +239,8 @@ function Horizontal_coll(b) {
     if (b.soundAbilityHorizontal && Math.abs(b.vel.x) > vel_lim) {
         b.soundAbilityHorizontal = false;
         let loudness =((Math.abs(b.vel.x)<vel_lim_loudness) ? Math.abs(b.vel.x)/vel_lim_loudness : 1);
-        if (b.pos.x > 1 / 3 * wall_width && b.pos.x < 2 / 3 * wall_width) { new Audio({src:soundFile1,volume:1}).play(); }
-        new Audio({src:soundFile2,volume:0.1}).play();
+        if (b.pos.x > 1 / 3 * wall_width && b.pos.x < 2 / 3 * wall_width) { new Audio({src:[soundFile1],volume:1}).play(); }
+        new Audio({src:[soundFile2],volume:0.1}).play();
     }
 }
 
@@ -248,8 +248,8 @@ function Vertical_coll(b) {
     if (b.soundAbilityHorizontal && Math.abs(b.vel.y) > vel_lim) {
         b.soundAbilityHorizontal = false;
         let loudness =((Math.abs(b.vel.x)<vel_lim_loudness) ? Math.abs(b.vel.x)/vel_lim_loudness : 1);
-        if (b.pos.y > 1 / 3 * wall_height && b.pos.y < 2 / 3 * wall_height) { new Audio({src:soundFile2,volume:0.5}).play(); }
-        new Audio({src:soundFile3,volume:0.3}).play();
+        if (b.pos.y > 1 / 3 * wall_height && b.pos.y < 2 / 3 * wall_height) { new Audio({src:[soundFile2],volume:0.5}).play(); }
+        new Audio({src:[soundFile3],volume:0.3}).play();
     }
 }
 
