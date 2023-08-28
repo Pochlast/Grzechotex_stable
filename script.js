@@ -62,10 +62,13 @@ let LEFT, UP, RIGHT, DOWN;
 let friction = 0.001;
 let coef_restitution = 0.90;
 let coef_ability = 3.5;
-let soundFile = './grzechotka_3.wav'
-let soundFile1 = './grzechotka_3.wav'
-let soundFile2 = './grzechotka_3.wav' 
-let soundFile3 = './grzechotka_3.wav' 
+let soundFile = './grzechotka_test.wav'
+let soundFile1 = './grzechotka_test.wav'
+let soundFile2 = './grzechotka_test.wav' 
+let soundFile3 = './grzechotka_test.wav' 
+
+
+
 
 var devicePixelRatio = window.devicePixelRatio || 1;
 dpi_x = document.getElementById('testdiv').offsetWidth * devicePixelRatio;
