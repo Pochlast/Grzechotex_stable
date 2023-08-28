@@ -256,23 +256,21 @@ function zderzenie(b) {
 
     acc_x_test = Math.round(b.vel.y * 100) / 100;
 
-    if (b.pos.x < 0) {
+   
+    if (b.pos.x < 0 + b.r) {
         b.vel.x = -b.vel.x * coef_restitution;
-        b.pos.x += -b.pos.x;
+        b.pos.x += b.r - b.pos.x;
         Horizontal_coll(b)
     }
-
-    if (b.pos.x > wall_width - 2*b.r) {
+    if (b.pos.x > wall_width - b.r) {
         b.vel.x = -b.vel.x * coef_restitution
         b.pos.x -= b.pos.x - (wall_width - b.r)
         Horizontal_coll(b)
     }
-
     if (b.pos.y < 0 + b.r) {
         b.vel.y = -b.vel.y * coef_restitution
         b.pos.y += b.r - b.pos.y
         Vertical_coll(b)
-
     }
     if (b.pos.y > wall_height - b.r) {
         b.vel.y = -b.vel.y * coef_restitution
