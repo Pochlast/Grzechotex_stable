@@ -57,7 +57,7 @@ const ctx = canvas.getContext('2d');
 let BALLZ = [];
 let WALLZ = [];
 
-let vel_lim_loudness = 500;
+let vel_lim_loudness = 20;
 let LEFT, UP, RIGHT, DOWN;
 let friction = 0.001;
 let coef_restitution = 0.90;
