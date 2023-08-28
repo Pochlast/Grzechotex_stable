@@ -24,8 +24,6 @@ function startRattle() {
         let newBall = new Ball(randInt(100, 500), randInt(50, 400), size ? 20 : randInt(20, 50), randInt(0, 10));
         newBall.elasticity = randInt(0, 10) / 10;
     }
-
-    BALLZ[0].player = true;
 }
 
 document.querySelector(".rattle-btns").onclick = function(e){
@@ -239,7 +237,8 @@ function coll_det_bb(b1, b2) {
 function Horizontal_coll(b) {
     if (b.soundAbilityHorizontal && Math.abs(b.vel.x) > vel_lim) {
         b.soundAbilityHorizontal = false;
-        if (b.pos.x > 1 / 3 * wall_width && b.pos.x < 2 / 3 * wall_width) { new Audio(soundFile1).play(); }
+        let loudness =((Math.abs(b.vel.x)<20) ? Math.abs(b.vel.x)*100/20 : 100);
+        if (b.pos.x > 1 / 3 * wall_width && b.pos.x < 2 / 3 * wall_width) { new Audio(soundFile1).volume(loudness).play(); }
         new Audio(soundFile2).play();
     }
 }
@@ -247,7 +246,8 @@ function Horizontal_coll(b) {
 function Vertical_coll(b) {
     if (b.soundAbilityHorizontal && Math.abs(b.vel.y) > vel_lim) {
         b.soundAbilityHorizontal = false;
-        if (b.pos.y > 1 / 3 * wall_height && b.pos.y < 2 / 3 * wall_height) { new Audio(soundFile2).play(); }
+        let loudness =((Math.abs(b.vel.x)<20) ? Math.abs(b.vel.x)*100/20 : 100);
+        if (b.pos.y > 1 / 3 * wall_height && b.pos.y < 2 / 3 * wall_height) { new Audio(soundFile2).volume(loudness).play(); }
         new Audio(soundFile3).play();
     }
 }
